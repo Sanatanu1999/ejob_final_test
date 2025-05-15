@@ -11,7 +11,7 @@ dbConnection()
 const bookRouter=require('./router/bookRouter')
 appServer.use(express.urlencoded({extended:true}))
 appServer.use(express.json());
-
+const host = "0.0.0.0";
 appServer.use(cors())
 appServer.use(bookRouter)
 
@@ -19,7 +19,7 @@ appServer.use((req,res)=>{
     res.send("<h1>page not found</h1");
   })
 appServer.listen(PORT,()=>{
-    console.log(`server is running on http://localhost:${PORT}`);
+    console.log(`server is running on http://${host}:${PORT}`);
 })
 
 
